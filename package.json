@@ -6,6 +6,9 @@
   "scripts": {
     "test": "jest"
   },
+  "prisma": {
+    "schema": "src/database/prisma/schema.prisma"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
