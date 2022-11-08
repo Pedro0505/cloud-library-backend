@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "tsnd --exit-child ./src/api/server.ts"
   },
   "prisma": {
     "schema": "src/database/prisma/schema.prisma",
