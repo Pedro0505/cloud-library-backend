@@ -9,6 +9,7 @@ class BookController implements IBookController {
   constructor(service: IBookService) {
     this._service = service;
   }
+
   public getAll = async (req: Request, res: Response) => {
     const data = await this._service.getAll();
 

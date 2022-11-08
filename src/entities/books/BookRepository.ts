@@ -1,4 +1,4 @@
-import OrmInjection from '../class/OrmInjection';
+import OrmInjection from '../../class/OrmInjection';
 import { IBook } from './interfaces/IBook';
 import IBookRepository from './interfaces/IBookRepository';
 

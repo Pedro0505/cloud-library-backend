@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import IRoutes from '../interfaces/IRoutes';
+import IRoutes from '../../interfaces/IRoutes';
 import BookWriterController from './BookWriterController';
 
 class BookWriterRoutes implements IRoutes {

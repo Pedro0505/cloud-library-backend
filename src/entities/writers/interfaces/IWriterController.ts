@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
-import { IBookId } from './IBook';
+import { IWriterId } from './IWriter';
 
-interface IBookController {
+interface IWriterController {
   getAll(req: Request, res: Response, next?: NextFunction): Promise<Response>
   create(req: Request, res: Response, next?: NextFunction): Promise<Response>
 }
 
-export default IBookController;
+export default IWriterController;
 

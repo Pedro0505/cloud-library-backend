@@ -19,6 +19,7 @@ class App {
 
   private routes() {
     this.app.use('/books', Factory.booksRouter);
+    this.app.use('/writers', Factory.writersRouter);
   }
 
   public start(PORT: string | number):void {
