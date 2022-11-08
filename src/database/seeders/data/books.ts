@@ -1,4 +1,4 @@
-import { IBookId } from '../../../entities/Books/interfaces/IBook';
+import { IBookId } from '../../../entities/books/interfaces/IBook';
 
 const booksData: IBookId[] = [
   {

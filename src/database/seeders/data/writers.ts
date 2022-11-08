@@ -1,4 +1,4 @@
-import { IWriterId } from '../../../entities/Writers/interfaces/IWriter';
+import { IWriterId } from '../../../entities/writers/interfaces/IWriter';
 
 const writersData: IWriterId[] = [
   {
