@@ -1,28 +1,28 @@
-const writersData = [
+const writersMock = [
   {
     id: 1,
     name: 'Robert Cecil Martin',
     sex: 'Male',
-    birthDate: new Date('05/12/1952'),
+    birthDate: '1952-05-12T00:00:00.000Z',
   },
   {
     id: 2,
     name: 'Martin Fowler',
     sex: 'Male',
-    birthDate: new Date('12/18/1963'),
+    birthDate: '1963-12-18T00:00:00.000Z',
   },
   {
     id: 3,
     name: 'Eric Evans',
     sex: 'Male',
-    birthDate: new Date('07/02/1975'),
+    birthDate: '1975-07-02T00:00:00.000Z',
   },
   {
     id: 4,
     name: 'Andy Hunt',
     sex: 'Male',
-    birthDate: new Date('12/17/1964'),
+    birthDate: '1964-12-17T00:00:00.000Z',
   },
 ];
 
-export default writersData;
+export default writersMock;

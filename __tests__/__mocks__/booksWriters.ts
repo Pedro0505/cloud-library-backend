@@ -1,4 +1,4 @@
-const booksWritersData = [
+const booksWritersMock = [
   {
     booksId: 1,
     writersId: 1,
@@ -21,4 +21,4 @@ const booksWritersData = [
   }
 ];
 
-export default booksWritersData;
+export default booksWritersMock;
