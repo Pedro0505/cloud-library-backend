@@ -8,6 +8,10 @@ import WriterController from './writers/WriterController';
 import WriterRepository from './writers/WriterRepository';
 import WriterRoutes from './writers/WriterRoutes';
 import WriterService from './writers/WriterService';
+import BookWriterRepository from './booksWriters/BookWriterRepository';
+import BookWriterService from './booksWriters/BookWriterService';
+import BookWriterController from './booksWriters/BookWriterController';
+import BookWriterRoutes from './booksWriters/BookWriterRoutes';
 
 class Factory {
   public static get booksRouter() {
@@ -24,6 +28,15 @@ class Factory {
     const service = new WriterService(repository);
     const controller = new WriterController(service);
     const router = new WriterRoutes(Router(), controller);
+
+    return router.routes;
+  }
+
+  public static get booksWritersRouter() {
+    const repository = new BookWriterRepository(new OrmInjection());
+    const service = new BookWriterService(repository);
+    const controller = new BookWriterController(service);
+    const router = new BookWriterRoutes(Router(), controller);
 
     return router.routes;
   }

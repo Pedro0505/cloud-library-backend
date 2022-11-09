@@ -20,9 +20,10 @@ class App {
   private routes() {
     this.app.use('/books', Factory.booksRouter);
     this.app.use('/writers', Factory.writersRouter);
+    this.app.use('/bookWriter', Factory.booksWritersRouter);
   }
 
-  public start(PORT: string | number):void {
+  public start(PORT: string | number): void {
     this.app.listen(PORT, () => console.log(`Server listen in port: ${PORT}`));
   }
 }

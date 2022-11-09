@@ -9,6 +9,10 @@ class BookWriterRoutes implements IRoutes {
   constructor(router: Router, controller: BookWriterController) {
     this._controller = controller;
     this._route = router;
+
+    this._route.get('/', this._controller.getAllIncludesWritersAndBook);
+
+    this._route.post('/', this._controller.create);
   }
 
   public get routes() {

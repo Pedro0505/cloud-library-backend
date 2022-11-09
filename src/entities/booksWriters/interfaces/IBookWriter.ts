@@ -1,13 +1,14 @@
 import { IBookId } from '../../books/interfaces/IBook';
+import { IWriterId } from '../../writers/interfaces/IWriter';
 
-interface IBookWriterId {
+interface IBookWriter {
   booksId: number;
   writersId: number;
 }
 
-interface IBookWriter extends IBookWriterId {
+interface IBookWriterIncludes extends IBookWriter {
   books: IBookId;
-  writers: IBookWriterId;
+  writers: IWriterId;
 }
 
-export { IBookWriterId, IBookWriter };
+export { IBookWriterIncludes, IBookWriter };
