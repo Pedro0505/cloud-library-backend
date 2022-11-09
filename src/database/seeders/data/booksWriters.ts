@@ -1,6 +1,6 @@
-import { IBookWriterId } from '../../../entities/booksWriters/interfaces/IBookWriter';
+import { IBookWriter } from '../../../entities/booksWriters/interfaces/IBookWriter';
 
-const booksWritersData: IBookWriterId[] = [
+const booksWritersData: IBookWriter[] = [
   {
     booksId: 1,
     writersId: 1,
