@@ -1,6 +1,4 @@
-import { IBookId } from '../../../entities/books/interfaces/IBook';
-
-const booksData: IBookId[] = [
+const booksSeed = [
   {
     id: 1,
     title: 'Clean Code',
@@ -19,6 +17,18 @@ const booksData: IBookId[] = [
     caption: 'Tackling Complexity in the Heart of Software',
     publicationDate: new Date('08/22/2003'),
   },
+  {
+    id: 4,
+    title: 'Clean Architecture',
+    caption: 'A Craftsman\'s Guide to Software Structure',
+    publicationDate: new Date('09/10/2017'),
+  },
+  {
+    id: 5,
+    title: 'The Pragmatic Programmer',
+    caption: 'Your Journey to Mastery',
+    publicationDate: new Date('09/13/2019'),
+  },
 ];
 
-export default booksData;
+export default booksSeed;

@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "pretest:integration": "npx prisma migrate reset --force --skip-seed --schema src/database/prisma/schema.test.prisma",
+    "test:integration": "NODE_ENV=test jest --runInBand ./__tests__/integration",
+    "dev": "tsnd --exit-child ./src/api/server.ts",
+    "prestart": "tsc",
+    "start": "node ./dist/api/server.js"
   },
   "prisma": {
     "schema": "src/database/prisma/schema.prisma",
@@ -34,6 +39,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
     "joi": "^17.7.0"
   }
 }

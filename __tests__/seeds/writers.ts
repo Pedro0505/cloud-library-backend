@@ -1,6 +1,4 @@
-import { IWriterId } from '../../../entities/writers/interfaces/IWriter';
-
-const writersData: IWriterId[] = [
+const writersSeed = [
   {
     id: 1,
     name: 'Robert Cecil Martin',
@@ -19,6 +17,12 @@ const writersData: IWriterId[] = [
     sex: 'Male',
     birthDate: new Date('07/02/1975'),
   },
+  {
+    id: 4,
+    name: 'Andy Hunt',
+    sex: 'Male',
+    birthDate: new Date('12/17/1964'),
+  },
 ];
 
-export default writersData;
+export default writersSeed;

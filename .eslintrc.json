@@ -17,6 +17,15 @@
   "rules": {
     "no-console": "off",
     "import/no-unresolved": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "import/prefer-default-export": "off",
+    "object-curly-newline": ["error", { "consistent": true }],
+    "consistent-return": "off",
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off",
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "lines-between-class-members": "off",
+    "class-methods-use-this": "off"
   }
 }

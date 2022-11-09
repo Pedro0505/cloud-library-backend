@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL_TEST")
+}
+
+model Books {
+  id                Int         @id                        @default(autoincrement())
+  title             String      @db.VarChar(45)
+  publicationDate   DateTime    @map("publication_date")   @db.Date()
+  caption           String      @db.VarChar(45)
+  writers           BooksWriters[]
+
+  @@map("books")
+}
+
+model Writers {
+  id                Int         @id                        @default(autoincrement())
+  name              String      @db.VarChar(45)
+  birthDate         DateTime    @map("birth_date")         @db.Date()
+  sex               String      @db.VarChar(45)
+  books             BooksWriters[]
+
+  @@map("writers")
+}
+
+model BooksWriters {
+  booksId           Int         @map("books_id")
+  writersId         Int         @map("writers_id")                 
+  books             Books       @relation(fields: [booksId], references: [id])
+  writers           Writers     @relation(fields: [writersId], references: [id])
+
+  @@id([booksId, writersId])
+  @@map("books_writers")
+}

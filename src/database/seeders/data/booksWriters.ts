@@ -1,4 +1,4 @@
-import IBookWriter from '../../../entities/BooksWriters/interfaces/IBookWriter';
+import { IBookWriter } from '../../../entities/booksWriters/interfaces/IBookWriter';
 
 const booksWritersData: IBookWriter[] = [
   {
