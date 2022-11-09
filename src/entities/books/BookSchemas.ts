@@ -10,7 +10,7 @@ export default class BookSchema {
 
   public createTask() {
     return this.joi.object<ICreateBookBody>({
-      caption: joi.string().required().max(45).min(5)
+      caption: this.joi.string().required().max(45).min(5)
         .messages({
           'any.required': '400|"caption" is required',
           'string.empty': '400|"caption" can\'t be empty',
@@ -18,18 +18,18 @@ export default class BookSchema {
           'string.max': '400|"caption" can\'t be more than 45',
           'string.base': '400|"caption" must be a string',
         }),
-      publicationDate: joi.string().regex(/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3})Z$/).required().messages({
+      publicationDate: this.joi.string().regex(/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3})Z$/).required().messages({
         'string.pattern.base': '400|"publicationDate" is invalid date format',
         'any.required': '400|"publicationDate" is required',
         'string.base': '400|"publicationDate" must be a string',
       }),
-      title: joi.string().required().messages({
+      title: this.joi.string().required().messages({
         'any.required': '400|"title" is required',
         'string.base': '400|"title" must be a string',
         'string.min': '400|"caption" can\'t be less than 5',
         'string.max': '400|"caption" can\'t be more than 45',
       }),
-      writerId: joi.number().strict().required().messages({
+      writerId: this.joi.number().strict().required().messages({
         'any.required': '400|"writerId" is required',
         'number.base': '400|"writerId" must be a number',
       }),
