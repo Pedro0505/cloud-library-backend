@@ -15,6 +15,8 @@ import BookWriterController from './booksWriters/BookWriterController';
 import BookWriterRoutes from './booksWriters/BookWriterRoutes';
 import BookSchema from './books/BookSchemas';
 import BooksMiddleware from './books/BookMiddleware';
+import WriterSchemas from './writers/WriterSchemas';
+import WriterMiddleware from './writers/WriterMiddleware';
 
 class Factory {
   public static get booksRouter() {
@@ -34,7 +36,9 @@ class Factory {
     const repository = new WriterRepository(new OrmInjection());
     const service = new WriterService(repository);
     const controller = new WriterController(service);
-    const router = new WriterRoutes(Router(), controller);
+    const schema = new WriterSchemas(Joi);
+    const middleware = new WriterMiddleware(schema);
+    const router = new WriterRoutes(Router(), controller, middleware);
 
     return router.routes;
   }
