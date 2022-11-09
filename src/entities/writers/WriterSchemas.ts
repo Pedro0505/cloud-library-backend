@@ -10,18 +10,17 @@ export default class WriterSchemas {
 
   public createTask() {
     return this.joi.object<IWriter>({
-      name: joi.string().required().max(45).min(5)
+      name: joi.string().required().max(45)
         .messages({
-          'any.required': '400|"caption" is required',
-          'string.empty': '400|"caption" can\'t be empty',
-          'string.min': '400|"caption" can\'t be less than 5',
-          'string.max': '400|"caption" can\'t be more than 45',
-          'string.base': '400|"caption" must be a string',
+          'any.required': '400|"name" is required',
+          'string.empty': '400|"name" can\'t be empty',
+          'string.max': '400|"name" can\'t be more than 45',
+          'string.base': '400|"name" must be a string',
         }),
       birthDate: joi.string().regex(/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3})Z$/).required().messages({
-        'string.pattern.base': '400|"publicationDate" is invalid date format',
-        'any.required': '400|"publicationDate" is required',
-        'string.base': '400|"publicationDate" must be a string',
+        'string.pattern.base': '400|"birthDate" is invalid date format',
+        'any.required': '400|"birthDate" is required',
+        'string.base': '400|"birthDate" must be a string',
       }),
       sex: joi.string().regex(/^(Male|Female|Other)$/).required().messages({
         'any.required': '400|"sex" is required',

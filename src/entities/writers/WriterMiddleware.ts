@@ -15,7 +15,7 @@ class WriterMiddleware extends ValidatorMiddleware {
 
     if (error) {
       const { code, message } = super.handleError(error.message.split('|'));
-      return res.status(code).json({ message });
+      return res.status(code).json({ error: { message } });
     }
 
     next();

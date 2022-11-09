@@ -23,12 +23,14 @@ export default class BookSchema {
         'any.required': '400|"publicationDate" is required',
         'string.base': '400|"publicationDate" must be a string',
       }),
-      title: this.joi.string().required().messages({
-        'any.required': '400|"title" is required',
-        'string.base': '400|"title" must be a string',
-        'string.min': '400|"caption" can\'t be less than 5',
-        'string.max': '400|"caption" can\'t be more than 45',
-      }),
+      title: this.joi.string().required().max(45)
+        .messages({
+          'any.required': '400|"title" is required',
+          'string.empty': '400|"title" can\'t be empty',
+          'string.min': '400|"title" can\'t be less than 5',
+          'string.max': '400|"title" can\'t be more than 45',
+          'string.base': '400|"title" must be a string',
+        }),
       writerId: this.joi.number().strict().required().messages({
         'any.required': '400|"writerId" is required',
         'number.base': '400|"writerId" must be a number',
