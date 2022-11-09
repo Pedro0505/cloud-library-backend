@@ -16,7 +16,9 @@ import BookWriterRoutes from './booksWriters/BookWriterRoutes';
 class Factory {
   public static get booksRouter() {
     const repository = new BookRepository(new OrmInjection());
-    const service = new BookService(repository);
+    const bookWriterRepository = new BookWriterRepository(new OrmInjection());
+    const writerRepository = new WriterRepository(new OrmInjection());
+    const service = new BookService(repository, writerRepository, bookWriterRepository);
     const controller = new BookController(service);
     const router = new BookRoutes(Router(), controller);
 

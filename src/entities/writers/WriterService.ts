@@ -8,11 +8,11 @@ class WriterService {
     this._repository = repository;
   }
 
-  public getAll() {
+  public async getAll() {
     return this._repository.getAll();
   }
 
-  public create(data: IWriter) {
+  public async create(data: IWriter) {
     return this._repository.create(data);
   }
 }

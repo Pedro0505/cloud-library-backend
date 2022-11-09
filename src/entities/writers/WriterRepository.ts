@@ -9,6 +9,10 @@ class WriterRepository implements IWriterRepository {
     this._prisma = orm;
   }
 
+  public async findWriterById(id: number) {
+    return this._prisma.writers.findFirst({ where: { id } });
+  }
+
   public async getAll() {
     const writers = await this._prisma.writers.findMany();
 
