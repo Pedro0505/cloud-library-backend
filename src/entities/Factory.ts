@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import Joi from 'joi';
 import BookController from './books/BookController';
 import BookRepository from './books/BookRepository';
 import BookRoutes from './books/BookRoutes';
@@ -12,6 +13,8 @@ import BookWriterRepository from './booksWriters/BookWriterRepository';
 import BookWriterService from './booksWriters/BookWriterService';
 import BookWriterController from './booksWriters/BookWriterController';
 import BookWriterRoutes from './booksWriters/BookWriterRoutes';
+import BookSchema from './books/BookSchemas';
+import BooksMiddleware from './books/BookMiddleware';
 
 class Factory {
   public static get booksRouter() {
@@ -20,7 +23,9 @@ class Factory {
     const writerRepository = new WriterRepository(new OrmInjection());
     const service = new BookService(repository, writerRepository, bookWriterRepository);
     const controller = new BookController(service);
-    const router = new BookRoutes(Router(), controller);
+    const schema = new BookSchema(Joi);
+    const middleware = new BooksMiddleware(schema);
+    const router = new BookRoutes(Router(), controller, middleware);
 
     return router.routes;
   }

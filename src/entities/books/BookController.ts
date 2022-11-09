@@ -18,9 +18,9 @@ class BookController implements IBookController {
   };
 
   public create = async (req: Request, res: Response) => {
-    const { content }: { content: ICreateBookBody } = req.body;
+    const { caption, publicationDate, title, writerId }: ICreateBookBody = req.body;
 
-    const data = await this._service.create(content);
+    const data = await this._service.create({ caption, publicationDate, title, writerId });
 
     if (data instanceof BadRequest) {
       const { reponse: { code, error } } = data;

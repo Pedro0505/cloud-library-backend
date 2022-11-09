@@ -17,9 +17,9 @@ class WriterController implements IWriterController {
   };
 
   public create = async (req: Request, res:Response) => {
-    const { content }: { content: IWriter } = req.body;
+    const { birthDate, name, sex }: IWriter = req.body;
 
-    const data = await this._service.create(content);
+    const data = await this._service.create({ birthDate, name, sex });
 
     return res.status(201).json({ data });
   };

@@ -24,9 +24,9 @@ class BookService implements IBookService {
   }
 
   public async create(data: ICreateBookBody) {
-    const writerExists = await this._writeRrepository.findWriterById(data.writerId);
+    const writer = await this._writeRrepository.findWriterById(data.writerId);
 
-    if (!writerExists) {
+    if (!writer) {
       return new NotFound('Writer Not Found!');
     }
 
