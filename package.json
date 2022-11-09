@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "tsnd --exit-child ./src/api/server.ts"
+    "pretest:integration": "npx prisma migrate reset --force --skip-seed --schema src/database/prisma/schema.test.prisma",
+    "test:integration": "NODE_ENV=test jest --runInBand ./__tests__/integration",
+    "dev": "tsnd --exit-child ./src/api/server.ts",
+    "prestart": "tsc",
+    "start": "node ./dist/api/server.js"
   },
   "prisma": {
     "schema": "src/database/prisma/schema.prisma",
