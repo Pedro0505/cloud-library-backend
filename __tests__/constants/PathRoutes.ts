@@ -1,7 +1,7 @@
 enum PathRoutes {
   BOOKS = '/books',
-  WRITERS = '/bookWriter',
-  BOOKSWRITERS = '/writers',
+  WRITERS = '/writers',
+  BOOKSWRITERS = '/bookWriter',
 }
 
 export default PathRoutes;
