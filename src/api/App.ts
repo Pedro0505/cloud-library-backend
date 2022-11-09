@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import 'express-async-errors';
 import errorHandler from '../middlewares/errorHandler';
 import Factory from '../entities/Factory';
 
