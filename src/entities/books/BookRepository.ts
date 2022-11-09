@@ -3,20 +3,20 @@ import { IBook } from './interfaces/IBook';
 import IBookRepository from './interfaces/IBookRepository';
 
 class BookRepository implements IBookRepository {
-  prisma: OrmInjection;
+  private _prisma: OrmInjection;
 
   constructor(orm: OrmInjection) {
-    this.prisma = orm;
+    this._prisma = orm;
   }
 
   public async getAll() {
-    const books = await this.prisma.books.findMany();
+    const books = await this._prisma.books.findMany();
 
     return books;
   }
 
   public async create(data: IBook) {
-    return this.prisma.books.create({ data });
+    return this._prisma.books.create({ data });
   }
 }
 
