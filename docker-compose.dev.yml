@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  db-cloud-library-dev:
+    image: mysql:latest
+    container_name: db-cloud-library-dev
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345678
+    restart: 'always'
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      timeout: 10s
+      retries: 5
+    cap_add:
+      - SYS_NICE
+
+  backend-cloud-library-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      db-cloud-library-dev:
+        condition: service_healthy
+    ports:
+      - 3001:3001
+    command: bash -c "npx prisma migrate reset --force --schema src/database/prisma/schema.prisma && npm run dev:docker"
+    environment:
+      - NODE_ENV=dev
+      - DATABASE_URL=mysql://root:12345678@db-cloud-library-dev:3306/cloud-library-dev?schema=public
+    healthcheck:
+      test: ['CMD', 'lsof', '-t', '-i:3001']
+      timeout: 10s
+      retries: 5
