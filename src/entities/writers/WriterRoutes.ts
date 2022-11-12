@@ -15,6 +15,8 @@ class WriterRoutes implements IRoutes {
 
     this._route.get('/', this._controller.getAll);
 
+    this._route.get('/:id', this._controller.findWriterById);
+
     this._route.post('/', this._middleware.createValidate, this._controller.create);
   }
 
