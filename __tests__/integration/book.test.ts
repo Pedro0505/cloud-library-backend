@@ -86,13 +86,6 @@ describe('Testing the route /books', () => {
           expect(body).toStrictEqual({ error: { message: "\"caption\" can't be empty" } });
         });
 
-        it('Testing when the "caption" is send with less than 5 of length', async () => {
-          const { body, status } = await request(app).post(PathRoutes.BOOKS).send({ title: 'Jonh Doe', publicationDate: '2000-01-01T00:00:00.000Z', writerId: 1, caption: 'ss' });
-
-          expect(status).toBe(400);
-          expect(body).toStrictEqual({ error: { message: "\"caption\" can't be less than 5" } });
-        });
-
         it('Testing when the "caption" is send with more than 45 of length', async () => {
           const { body, status } = await request(app).post(PathRoutes.BOOKS).send({ title: 'Jonh Doe', publicationDate: '2000-01-01T00:00:00.000Z', writerId: 1, caption: 's'.repeat(46) });
 

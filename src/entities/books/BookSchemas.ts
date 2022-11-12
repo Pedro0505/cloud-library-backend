@@ -10,11 +10,10 @@ export default class BookSchema {
 
   public createTask() {
     return this.joi.object<ICreateBookBody>({
-      caption: this.joi.string().required().max(45).min(5)
+      caption: this.joi.string().required().max(45)
         .messages({
           'any.required': '400|"caption" is required',
           'string.empty': '400|"caption" can\'t be empty',
-          'string.min': '400|"caption" can\'t be less than 5',
           'string.max': '400|"caption" can\'t be more than 45',
           'string.base': '400|"caption" must be a string',
         }),
@@ -27,7 +26,6 @@ export default class BookSchema {
         .messages({
           'any.required': '400|"title" is required',
           'string.empty': '400|"title" can\'t be empty',
-          'string.min': '400|"title" can\'t be less than 5',
           'string.max': '400|"title" can\'t be more than 45',
           'string.base': '400|"title" must be a string',
         }),
